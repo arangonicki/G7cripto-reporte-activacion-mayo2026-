@@ -1,0 +1,1 @@
+# G7cripto-reporte-activacion-mayo2026-
