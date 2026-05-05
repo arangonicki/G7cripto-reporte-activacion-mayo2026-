@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G7Cripto · Reporte de Activación ADS · Mayo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #05070f;
+  --bg2: #090c18;
+  --bg3: #0d1020;
+  --accent: #00e5a0;
+  --accent2: #4f6fff;
+  --accent3: #ff5c3a;
+  --warn: #ffb800;
+  --text: #dde2f0;
+  --muted: #5a6080;
+  --border: rgba(255,255,255,0.06);
+  --card: rgba(255,255,255,0.025);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 60px 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,229,160,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,160,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -120px; right: -80px;
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(79,111,255,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-glow2 {
+  position: absolute;
+  bottom: -80px; left: 20%;
+  width: 400px; height: 300px;
+  background: radial-gradient(ellipse, rgba(0,229,160,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 800px; }
+
+.badge-row { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+.badge-green { background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.2); color: var(--accent); }
+.badge-blue { background: rgba(79,111,255,0.1); border: 1px solid rgba(79,111,255,0.2); color: #7a9bff; }
+.badge-orange { background: rgba(255,92,58,0.1); border: 1px solid rgba(255,92,58,0.2); color: #ff7a5c; }
+.badge-yellow { background: rgba(255,184,0,0.1); border: 1px solid rgba(255,184,0,0.2); color: var(--warn); }
+
+.badge-pulse::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+h1 .accent { color: var(--accent); }
+h1 .dim { color: var(--muted); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.hero-meta {
+  display: flex; gap: 40px; margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.meta-item { }
+.meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 3px; }
+.meta-val { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); }
+
+/* WRAPPER */
+.wrapper { max-width: 900px; margin: 0 auto; padding: 0 60px 80px; }
+
+@media(max-width:640px){
+  .hero { padding: 48px 24px 40px; }
+  .wrapper { padding: 0 24px 60px; }
+}
+
+/* SECTIONS */
+.section { padding: 52px 0 0; }
+.section-eyebrow {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted); margin-bottom: 10px; font-weight: 500;
+}
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* STAT ROW */
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 12px; margin: 20px 0 0; }
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.stat-n {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px; font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-l { font-size: 11px; color: var(--muted); }
+.c-green { color: var(--accent); }
+.c-blue { color: #7a9bff; }
+.c-orange { color: #ff7a5c; }
+.c-yellow { color: var(--warn); }
+
+/* ALERT */
+.alert {
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0 0;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.alert-warn { background: rgba(255,184,0,0.06); border: 1px solid rgba(255,184,0,0.2); }
+.alert-info { background: rgba(79,111,255,0.06); border: 1px solid rgba(79,111,255,0.18); }
+.alert-success { background: rgba(0,229,160,0.05); border: 1px solid rgba(0,229,160,0.15); }
+.alert-danger { background: rgba(255,92,58,0.06); border: 1px solid rgba(255,92,58,0.2); }
+.alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.alert-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.alert-warn .alert-title { color: var(--warn); }
+.alert-info .alert-title { color: #7a9bff; }
+.alert-success .alert-title { color: var(--accent); }
+.alert-danger .alert-title { color: #ff7a5c; }
+.alert-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* DIVIDER */
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
+
+/* CHECKLIST */
+.checklist { display: flex; flex-direction: column; gap: 2px; margin-top: 16px; }
+.cl-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background 0.12s;
+}
+.cl-item:hover { background: var(--card); }
+.cl-check {
+  width: 18px; height: 18px; border-radius: 5px;
+  flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+}
+.check-done { background: rgba(0,229,160,0.15); border: 1px solid rgba(0,229,160,0.3); color: var(--accent); }
+.check-pending { background: rgba(255,184,0,0.1); border: 1px solid rgba(255,184,0,0.25); color: var(--warn); }
+.check-blocked { background: rgba(255,92,58,0.1); border: 1px solid rgba(255,92,58,0.25); color: #ff7a5c; }
+.check-today { background: rgba(79,111,255,0.1); border: 1px solid rgba(79,111,255,0.25); color: #7a9bff; }
+.cl-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+.cl-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.cl-item.done .cl-text { color: var(--muted); text-decoration: line-through; }
+
+/* COUNTRY GRID */
+.country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 10px; margin-top: 16px; }
+.country-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px;
+}
+.country-name { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.country-flag { font-size: 16px; }
+.country-items { display: flex; flex-direction: column; gap: 4px; }
+.country-item { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.country-item::before { content:'·'; color: var(--muted); }
+.country-item.done { color: rgba(0,229,160,0.7); }
+.country-item.done::before { content:'✓'; color: var(--accent); }
+
+/* STRATEGY */
+.strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-top: 16px; }
+.strategy-card {
+  border-radius: 12px; padding: 18px 20px;
+  border: 1px solid;
+}
+.strategy-card.meta { background: rgba(79,111,255,0.05); border-color: rgba(79,111,255,0.2); }
+.strategy-card.tiktok { background: rgba(0,229,160,0.04); border-color: rgba(0,229,160,0.15); }
+.strategy-card.google { background: rgba(255,92,58,0.05); border-color: rgba(255,92,58,0.18); }
+.strategy-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; margin-bottom: 6px; }
+.strategy-card.meta .strategy-label { color: #7a9bff; }
+.strategy-card.tiktok .strategy-label { color: var(--accent); }
+.strategy-card.google .strategy-label { color: #ff7a5c; }
+.strategy-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.strategy-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.strategy-mes { font-size: 10px; margin-top: 8px; padding: 3px 8px; border-radius: 100px; display: inline-block; font-weight: 500; }
+.strategy-card.meta .strategy-mes { background: rgba(79,111,255,0.12); color: #7a9bff; }
+.strategy-card.tiktok .strategy-mes { background: rgba(0,229,160,0.1); color: var(--accent); }
+.strategy-card.google .strategy-mes { background: rgba(255,92,58,0.1); color: #ff7a5c; }
+
+/* PENDIENTES BLOQUEADORES */
+.blocker-list { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.blocker {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px;
+}
+.blocker-num {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+  flex-shrink: 0;
+}
+.blocker-num.b1 { background: rgba(255,184,0,0.15); color: var(--warn); }
+.blocker-num.b2 { background: rgba(79,111,255,0.15); color: #7a9bff; }
+.blocker-num.b3 { background: rgba(0,229,160,0.12); color: var(--accent); }
+.blocker-content h4 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.blocker-content p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.blocker-owner { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 5px; font-weight: 500; }
+.b1-owner { color: var(--warn); }
+.b2-owner { color: #7a9bff; }
+.b3-owner { color: var(--accent); }
+
+/* BUDGET TABLE */
+.budget-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+.budget-table th {
+  text-align: left; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--muted); font-weight: 500;
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+}
+.budget-table td {
+  padding: 10px 12px; font-size: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align: middle;
+}
+.budget-table tr:hover td { background: rgba(255,255,255,0.015); }
+.budget-table tr.total td {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-weight: 500; color: var(--text);
+  padding-top: 12px;
+}
+.flag-name { display: flex; align-items: center; gap: 8px; }
+.amt { font-family: 'Syne', sans-serif; font-weight: 700; }
+.amt-green { color: var(--accent); }
+.progress-bar { width: 80px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+/* FOOTER */
+.footer {
+  margin-top: 60px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-brand { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--muted); }
+.footer-brand span { color: var(--accent); }
+.footer-meta { font-size: 11px; color: rgba(90,96,128,0.5); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="badge-row">
+      <span class="badge badge-green badge-pulse">En progreso</span>
+      <span class="badge badge-blue">Performance Marketing</span>
+      <span class="badge badge-yellow">Activación pendiente</span>
+    </div>
+    <h1>Reporte de<br><span class="accent">Activación ADS</span><br><span class="dim">G7Cripto · Mayo 2026</span></h1>
+    <p class="hero-sub">Estado completo de las campañas de pauta en Meta, TikTok y Google Ads para los 7 mercados LATAM. Preparado por Nicki — Head de Marketing.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><div class="meta-label">Fecha del reporte</div><div class="meta-val">5 de mayo, 2026</div></div>
+      <div class="meta-item"><div class="meta-label">Mercados</div><div class="meta-val">CO · MX · AR · CL · EC · PA · UY</div></div>
+      <div class="meta-item"><div class="meta-label">Presupuesto total</div><div class="meta-val">$1.000 USD/mes</div></div>
+      <div class="meta-item"><div class="meta-label">Para</div><div class="meta-val">Guillermo L. Valencia — CEO</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+
+  <!-- RESUMEN EJECUTIVO -->
+  <div class="section">
+    <div class="section-eyebrow">Resumen ejecutivo</div>
+    <h2>Dónde estamos hoy</h2>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-n c-green">7</div><div class="stat-l">Campañas Meta creadas</div></div>
+      <div class="stat-card"><div class="stat-n c-blue">8</div><div class="stat-l">Videos TikTok en edición</div></div>
+      <div class="stat-card"><div class="stat-n c-yellow">2</div><div class="stat-l">Desbloqueadores pendientes</div></div>
+      <div class="stat-card"><div class="stat-n c-orange">0</div><div class="stat-l">Pesos gastados hasta ahora</div></div>
+    </div>
+    <div class="alert alert-success" style="margin-top:16px;">
+      <div class="alert-icon">✦</div>
+      <div>
+        <div class="alert-title">Las campañas de Meta están listas para los 7 países</div>
+        <div class="alert-body">Todas las campañas de Meta Ads fueron creadas y configuradas en borrador con assets de Kevin Barragán, copy del brief V3 y segmentación por país. Solo esperan tres desbloqueadores técnicos para activarse. No se ha gastado ningún presupuesto hasta confirmar que todo funciona correctamente.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- CHECKLIST COMPLETO -->
+  <div class="section">
+    <div class="section-eyebrow">Estado de activación</div>
+    <h2>Checklist general del proyecto</h2>
+
+    <div class="checklist">
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">App G7Cripto actualizada y lista para producción</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Landing pages 7 países publicadas y funcionales</div><div class="cl-sub">CO · MX · AR · CL · EC · PA · UY</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Assets de Kevin Barragán entregados</div><div class="cl-sub">Google Ads + Meta estáticos + carruseles para los 7 países</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">SOFI actualizada y lista</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Equipo operativo, comercial y legal alineado</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Cuentas publicitarias Meta, TikTok y Google creadas</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Campañas Meta configuradas en borrador — 7 países</div><div class="cl-sub">Objetivo App Installs · Advantage+ · Presupuestos según brief V3 · Assets cargados</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Meta Pixel + TikTok Pixel instalados por Aaron en landings</div><div class="cl-sub">Pendiente verificación técnica — ver sección de pendientes</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-blocked">!</div>
+        <div><div class="cl-text">Verificación de pixels — Meta Pixel Helper + TikTok Pixel Helper</div><div class="cl-sub">Los helpers no detectan los pixels en la landing. En diagnóstico con Aaron.</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-blocked">!</div>
+        <div><div class="cl-text">App G7Cripto conectada al portfolio de Meta Ads</div><div class="cl-sub">Requiere acción de Guillermo — ver sección de pendientes</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-today">→</div>
+        <div><div class="cl-text">Videos Thiago — 8 videos TikTok + 1 Spark Ad</div><div class="cl-sub">En edición hoy. Entrega estimada: hoy mismo.</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-pending">○</div>
+        <div><div class="cl-text">Campañas TikTok configuradas — 6 países</div><div class="cl-sub">Listas para configurar en cuanto Thiago entregue los videos</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Actualizar página de Facebook de G7BSPay Latam a G7Cripto</div><div class="cl-sub">Completado — la página ya refleja la identidad correcta de G7Cripto</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-pending">○</div>
+        <div><div class="cl-text">Activación de todas las campañas</div><div class="cl-sub">Una vez resueltos los 3 desbloqueadores técnicos</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-pending">○</div>
+        <div><div class="cl-text">Google Ads — Mes 3 · Julio 2026</div><div class="cl-sub">CO · MX · AR + países secundarios. Ver estrategia abajo.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- META — 7 PAÍSES -->
+  <div class="section">
+    <div class="section-eyebrow">Meta Ads · Completado</div>
+    <h2>Campañas Meta — 7 países configuradas</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:4px;">Todas en borrador. Objetivo: App Installs con Advantage+. Cada campaña tiene assets de Kevin, copy del brief V3 y segmentación específica por país. Solo esperan activación.</p>
+
+    <div class="country-grid" style="margin-top:20px;">
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇨🇴</span>Colombia</div>
+        <div class="country-items">
+          <div class="country-item done">Carrusel — Un solo saldo</div>
+          <div class="country-item done">Estático — Perdés menos al cobrar</div>
+          <div class="country-item done">$7 USD/día · Advantage+</div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇲🇽</span>México</div>
+        <div class="country-items">
+          <div class="country-item done">Estático — Menos costo. Más control.</div>
+          <div class="country-item done">$6 USD/día · Advantage+</div>
+          <div class="country-item done">Copy sin mención directa de cripto</div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇦🇷</span>Argentina</div>
+        <div class="country-items">
+          <div class="country-item done">Estático — Cobrá mejor. Elegís vos.</div>
+          <div class="country-item done">Pieza USD/cripto — USDT, USDC, BTC</div>
+          <div class="country-item done">$5 USD/día · Advantage+</div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇨🇱</span>Chile</div>
+        <div class="country-items">
+          <div class="country-item done">Estático — Todos tus pagos, un lugar</div>
+          <div class="country-item done">$4 USD/día · Advantage+</div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇪🇨</span>Ecuador</div>
+        <div class="country-items">
+          <div class="country-item done">Estático — USD sin castigo extra</div>
+          <div class="country-item done">$3 USD/día · Advantage+</div>
+          <div class="country-item done">Copy solo retiro USD (dolarizado)</div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇵🇦</span>Panamá</div>
+        <div class="country-items">
+          <div class="country-item done">Estático — Menos costo. Same-day.</div>
+          <div class="country-item done">$3 USD/día · Advantage+</div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name"><span class="country-flag">🇺🇾</span>Uruguay</div>
+        <div class="country-items">
+          <div class="country-item done">Estático premium — Cobra con control</div>
+          <div class="country-item done">$1.50 USD/día · Advantage+</div>
+          <div class="country-item done">Tono aspiracional, no urgente</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ESTRATEGIA POR CANAL -->
+  <div class="section">
+    <div class="section-eyebrow">Estrategia de activación por canal</div>
+    <h2>Por qué este orden y no otro</h2>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:4px;">El brief define roles claros para cada canal. Activar todo al mismo tiempo con presupuesto limitado dispersa el aprendizaje y genera datos difíciles de interpretar. La secuencia está diseñada para maximizar lo que aprende cada peso invertido.</p>
+
+    <div class="strategy-grid">
+      <div class="strategy-card meta">
+        <div class="strategy-label">Meta Ads</div>
+        <div class="strategy-title">Escala y estabiliza</div>
+        <div class="strategy-desc">Arranca primero porque ya tiene assets listos y Advantage+ puede aprender con presupuesto bajo. Ideal para instalar el pixel, generar datos reales de instalación y entender qué creativo convierte antes de escalar.</div>
+        <span class="strategy-mes">Mes 1 · Activo hoy</span>
+      </div>
+      <div class="strategy-card tiktok">
+        <div class="strategy-label">TikTok Ads</div>
+        <div class="strategy-title">Abre demanda</div>
+        <div class="strategy-desc">Entra en paralelo con Meta en cuanto Thiago entregue los videos hoy. TikTok es el canal líder para Colombia según el brief — genera demanda nueva en audiencias que no estaban buscando activamente el producto.</div>
+        <span class="strategy-mes">Mes 1 · Esta semana</span>
+      </div>
+      <div class="strategy-card google">
+        <div class="strategy-label">Google Ads</div>
+        <div class="strategy-title">Captura intención</div>
+        <div class="strategy-desc">Google entra en Mes 3 — julio — con campañas 100% nuevas desde cero. La razón es concreta: la auditoría de marzo mostró $1.700 USD gastados con solo ~20 conversiones reales por tracking roto. Sin datos limpios de Meta y TikTok primero, Google optimizaría hacia métricas falsas nuevamente.</div>
+        <span class="strategy-mes">Mes 3 · Julio 2026</span>
+      </div>
+    </div>
+
+    <div class="alert alert-warn" style="margin-top:20px;">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-title">Por qué Google Ads no arranca ahora</div>
+        <div class="alert-body">La auditoría de marzo 2026 registró 10.000+ "conversiones" que en realidad fueron ~20 reales. Google estaba optimizando hacia clics superficiales, no hacia instalaciones. Si reactivamos Google hoy, el algoritmo retoma esas señales contaminadas y reproduce el mismo error. El orden correcto es: 4–6 semanas de datos limpios de Meta y TikTok → conversiones reales verificadas → Google entra con campañas nuevas en julio y con información de qué mensaje convierte de verdad.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- PENDIENTES BLOQUEADORES -->
+  <div class="section">
+    <div class="section-eyebrow">Pendientes de activación</div>
+    <h2>3 desbloqueadores para lanzar</h2>
+
+    <div class="blocker-list">
+      <div class="blocker">
+        <div class="blocker-num b1">1</div>
+        <div class="blocker-content">
+          <h4>Verificación de pixels — Aaron</h4>
+          <p>Los pixels de Meta y TikTok fueron instalados por Aaron pero los helpers de Chrome no los detectan en la landing de Colombia. Aaron está diagnosticando si el código quedó en el lugar correcto del `&lt;head&gt;` y si cubre todas las páginas, no solo la home. Sin pixels funcionando, las campañas no pueden optimizar hacia instalaciones reales.</p>
+          <div class="blocker-owner b1-owner">→ Responsable: Aaron · En diagnóstico ahora</div>
+        </div>
+      </div>
+      <div class="blocker">
+        <div class="blocker-num b2">2</div>
+        <div class="blocker-content">
+          <h4>Conectar app G7Cripto al portfolio de Meta — Guillermo</h4>
+          <p>Para que Meta pueda optimizar hacia instalaciones de la app, necesita que la app esté vinculada a la cuenta publicitaria. El proceso tarda menos de 5 minutos: Meta Business Suite → Configuración → Apps → Conectar identificador. App Store ID: 1576976184 / Google Play: com.gsietecorp.gsietepay</p>
+          <div class="blocker-owner b2-owner">→ Responsable: Guillermo · Requiere acción inmediata</div>
+        </div>
+      </div>
+      <div class="blocker" style="opacity:0.5;">
+        <div class="blocker-num b3">✓</div>
+        <div class="blocker-content">
+          <h4 style="text-decoration:line-through;">Actualizar página de Facebook — G7BSPay Latam → G7Cripto</h4>
+          <p>Completado. La página ya refleja la identidad correcta de G7Cripto.</p>
+          <div class="blocker-owner b3-owner">→ Completado · 5 de mayo, 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- PRESUPUESTO -->
+  <div class="section">
+    <div class="section-eyebrow">Presupuesto</div>
+    <h2>Distribución según brief V3</h2>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>País</th>
+          <th>Total</th>
+          <th>Meta</th>
+          <th>TikTok</th>
+          <th>Google</th>
+          <th>Peso relativo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="flag-name"><span>🇨🇴</span>Colombia</div></td>
+          <td><span class="amt amt-green">$300</span></td>
+          <td>$75</td><td>$120</td><td>$105</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></td>
+        </tr>
+        <tr>
+          <td><div class="flag-name"><span>🇲🇽</span>México</div></td>
+          <td><span class="amt amt-green">$220</span></td>
+          <td>$55</td><td>$88</td><td>$77</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:73%"></div></div></td>
+        </tr>
+        <tr>
+          <td><div class="flag-name"><span>🇦🇷</span>Argentina</div></td>
+          <td><span class="amt amt-green">$180</span></td>
+          <td>$45</td><td>$72</td><td>$63</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div></td>
+        </tr>
+        <tr>
+          <td><div class="flag-name"><span>🇨🇱</span>Chile</div></td>
+          <td><span class="amt c-blue">$120</span></td>
+          <td>$42</td><td>$24</td><td>$54</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div></td>
+        </tr>
+        <tr>
+          <td><div class="flag-name"><span>🇪🇨</span>Ecuador</div></td>
+          <td><span class="amt c-blue">$70</span></td>
+          <td>$24</td><td>$14</td><td>$32</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:23%"></div></div></td>
+        </tr>
+        <tr>
+          <td><div class="flag-name"><span>🇵🇦</span>Panamá</div></td>
+          <td><span class="amt c-blue">$70</span></td>
+          <td>$24</td><td>$14</td><td>$32</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:23%"></div></div></td>
+        </tr>
+        <tr>
+          <td><div class="flag-name"><span>🇺🇾</span>Uruguay</div></td>
+          <td><span class="amt c-blue">$40</span></td>
+          <td>$12</td><td>—</td><td>$28</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width:13%"></div></div></td>
+        </tr>
+        <tr class="total">
+          <td><strong>Total</strong></td>
+          <td><span class="amt amt-green">$1.000</span></td>
+          <td><strong>$277</strong></td><td><strong>$332</strong></td><td><strong>$391</strong></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- PROXIMOS PASOS -->
+  <div class="section">
+    <div class="section-eyebrow">Próximos pasos</div>
+    <h2>Lo que activa todo</h2>
+    <div class="checklist">
+      <div class="cl-item">
+        <div class="cl-check check-blocked">1</div>
+        <div><div class="cl-text">Aaron resuelve el pixel — verificar con helper en verde</div><div class="cl-sub">Cuando el pixel dispare correctamente en la landing de Colombia, extendemos a los 6 países restantes</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-blocked">2</div>
+        <div><div class="cl-text">Guillermo conecta la app G7Cripto en Meta Business Suite</div><div class="cl-sub">5 minutos · Configuración → Apps → Conectar identificador</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-today">3</div>
+        <div><div class="cl-text">Thiago entrega los 8 videos hoy → configurar TikTok Ads</div><div class="cl-sub">En cuanto lleguen los videos, se configuran las campañas de TikTok y quedan en borrador listas</div></div>
+      </div>
+      <div class="cl-item done">
+        <div class="cl-check check-done">✓</div>
+        <div><div class="cl-text">Actualizar página Facebook a G7Cripto</div><div class="cl-sub">Completado · 5 de mayo, 2026</div></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-check check-pending">5</div>
+        <div><div class="cl-text">Activación — Meta + TikTok simultáneos</div><div class="cl-sub">Colombia primero. Cuando los 4 pasos anteriores estén completos, presionamos activar.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand"><span>G7Cripto</span> · Reporte de Activación ADS · Mayo 2026</div>
+    <div class="footer-meta">Preparado por Nicki — Head de Marketing · V1 · 5 de mayo, 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
